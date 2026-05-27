@@ -39,3 +39,37 @@ char password[50] = "IloveC";
 int age = 50;
 char gender[1] = "M";
 ```
+**The pattern:**
+
+```c
+type     name      = value;
+```
+
+| Variable | Data Type | What it stores |
+|----------|-----------|----------------|
+| `username` | `char[50]` | A string up to 49 chars + null terminator |
+| `password` | `char[50]` | A string up to 49 chars + null terminator |
+| `age` | `int` | A whole number |
+| `gender` | `char[1]` | A single character as a string |
+
+> **Note:** `gender` should really be `char gender = 'M';` (single char, no array). Using `"M"` (string) instead of `'M'` (char) wastes space.
+
+---
+
+## Format Specifiers — How to Print Different Types
+
+When you print with `printf`, you must tell it what type to expect using **format specifiers**.
+
+### Common Format Specifiers
+
+| Specifier | Data Type | What it prints | Example |
+|-----------|-----------|----------------|---------|
+| `%d` or `%i` | `int` | Signed integer | `printf("%d", age);` |
+| `%f` | `float` | Decimal number | `printf("%f", price);` |
+| `%.2f` | `float` | Decimal with 2 places | `printf("%.2f", price);` |
+| `%c` | `char` | Single character | `printf("%c", grade);` |
+| `%s` | `char[]` | Text string | `printf("%s", name);` |
+| `%p` | Pointer | Memory address | `printf("%p", &age);` |
+| `%x` | `int` | Hexadecimal | `printf("%x", num);` |
+| `%%` | None | Prints a percent sign | `printf("50%%");` |
+
