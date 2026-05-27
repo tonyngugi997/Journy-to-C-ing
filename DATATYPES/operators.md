@@ -876,3 +876,81 @@ if (5 == x)  // If you accidentally write 5 = x, compiler ERROR
 
 ---
 
+
+## Operator Precedence and Associativity (The Order of Chaos)
+
+
+## The Dark Truth (Come Back Here Later)
+
+Operators seem simple. They're not.
+
+Every operator you use is actually a **contract** with the compiler:
+
+> *"I promise the operands are the right type."*
+
+Break that contract? **Undefined behavior.** Your program might crash. It might print garbage. It might delete your files. It might order 1000 pizzas to your house. (Okay, probably not that last one.)
+
+**Example of undefined behavior:**
+
+```c
+int x = 10;
+int y = x++ + ++x;   // What's y? Depends on compiler. DON'T DO THIS.
+printf("%d %d\n", x++, x++);  // What prints? Nobody knows.
+```
+
+**The rule:** Don't modify the same variable multiple times in the same expression. It's like asking "What's 5 plus the answer to this question?" — it doesn't make sense.
+
+---
+
+## Quick Reference Card (Print This)
+
+```c
+// ARITHMETIC (Math)
++   // Add
+-   // Subtract
+*   // Multiply
+/   // Divide (careful with ints!)
+%   // Modulo (remainder, ints only)
+++  // Add 1 (post: x++, pre: ++x)
+--  // Subtract 1
+
+// RELATIONAL (Comparisons)
+<    // Less than
+>    // Greater than
+<=   // Less than or equal
+>=   // Greater than or equal
+==   // Equal to (DOUBLE equals!)
+!=   // Not equal to
+
+// LOGICAL (True/False)
+&&   // AND (both true)
+||   // OR (at least one true)
+!    // NOT (flips true/false)
+
+// ASSIGNMENT
+=    // Assign
++=   // Add and assign
+-=   // Subtract and assign
+*=   // Multiply and assign
+/=   // Divide and assign
+%=   // Modulo and assign
+
+// BITWISE (Advanced)
+&    // AND
+|    // OR
+^    // XOR
+~    // NOT
+<<   // Left shift (multiply by 2)
+>>   // Right shift (divide by 2)
+
+// OTHER
+sizeof()   // Size in bytes
+&          // Address of
+*          // Dereference
+?:         // Conditional (ternary)
+,          // Comma
+(type)     // Cast
+```
+
+---
+
