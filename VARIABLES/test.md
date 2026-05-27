@@ -9,3 +9,7 @@ Write a C program that:
 5. Assigns the value `2148000` to `population`.
 6. Assigns the value `12.5` to `average_temperature`.
 7. Prints them all in one line using a single `printf` statement, formatted like this:
+
+> But before you answer this, walk through the next lesson on datatypes:
+>
+> [Datatypes](../datatypes/datatypes.md)
