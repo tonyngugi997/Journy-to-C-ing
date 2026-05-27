@@ -225,3 +225,162 @@ int a = 5;
 int b = ++a;   // a becomes 6, THEN b gets 6
 // After this line: a = 6, b = 6
 ```
+
+
+## Family 1: Arithmetic Operators (The Mathletes)
+
+These are your basic math operations. You've been using them since first grade. But C adds a few twists.
+
+### The Classics
+
+| Operator | Meaning | Example | Result |
+|----------|---------|---------|--------|
+| `+` | Addition | `7 + 3` | `10` |
+| `-` | Subtraction | `7 - 3` | `4` |
+| `*` | Multiplication | `7 * 3` | `21` |
+| `/` | Division | `7 / 3` | `2` (⚠️ WAIT, WHAT?) |
+| `%` | Modulo (remainder) | `7 % 3` | `1` |
+
+See that division? `7 / 3 = 2`? Not `2.333...`?
+
+**Welcome to the first trap of C programming.**
+
+### The Division Trap (Read This Twice)
+
+Here's the deal: When you divide two **integers**, C gives you back an **integer**. It doesn't round. It doesn't give you decimals. It **truncates** — it chops off the decimal part like a guillotine.
+
+> **The Golden Rule of Division:**
+> - `int / int` = `int` (decimals get CHOPPED OFF, not rounded)
+> - `float / anything` = `float`
+> - `anything / float` = `float`
+
+### The Modulo Operator (`%`) — The One Nobody Understands at First
+
+Modulo gives you the **remainder** after division. That's it. But it's INCREDIBLY useful.
+
+```c
+10 % 3 = 1   // 3 goes into 10 three times (9), left with 1
+7 % 5 = 2    // 5 goes into 7 once (5), left with 2
+8 % 2 = 0    // 2 goes into 8 four times (8), left with 0
+17 % 5 = 2   // 5 goes into 17 three times (15), left with 2
+```
+
+**Think of it like this:** You have 10 cookies. You want to put them in boxes of 3. You fill 3 boxes (9 cookies). You have 1 cookie left. That leftover? That's the modulo.
+
+```c
+int cookies = 10;
+int boxSize = 3;
+int fullBoxes = cookies / boxSize;   // 3 full boxes
+int leftover = cookies % boxSize;     // 1 cookie left (so sad)
+
+printf("You have %d full boxes and %d lonely cookies.\n", fullBoxes, leftover);
+```
+
+**Real-world uses of modulo (this is where it gets cool):**
+
+| Use Case | Code | Why it works |
+|----------|------|--------------|
+| Is a number even? | `if (num % 2 == 0)` | Even numbers divide by 2 with no remainder |
+| Is a number odd? | `if (num % 2 != 0)` | Odd numbers always have remainder 1 |
+| Get last digit of a number | `int last = num % 10;` | `1234 % 10 = 4` |
+| Wrap around an array | `index = (index + 1) % maxSize` | When you reach the end, go back to 0 |
+| Convert seconds to minutes | `int secondsLeft = totalSeconds % 60;` | Remainder after taking out full minutes |
+
+```c
+// Check if a number is even or odd
+int num = 17;
+if (num % 2 == 0) {
+    printf("%d is even\n", num);
+} else {
+    printf("%d is odd\n", num);  // This runs
+}
+```
+
+> **Warning:** `%` ONLY works with integers. You can't do `5.5 % 2`. C will yell at you.
+
+### Unary Arithmetic (One Operand Wonders)
+
+So far, all our operators worked on two things. But some operators work on ONE thing.
+
+| Operator | Meaning | Example | Result |
+|----------|---------|---------|--------|
+| `+` (unary) | Positive value | `+5` | `5` (useless, honestly) |
+| `-` (unary) | Negative value | `-5` | `-5` (actually useful) |
+
+```c
+int x = 5;
+int y = -x;   // y = -5
+int z = +x;   // z = 5 (why would you do this?)
+```
+
+The unary `-` is great for flipping signs. The unary `+` exists just to make the compiler happy. Don't overthink it.
+
+### Increment and Decrement (`++` and `--`) — The Most Confusing Operators in C
+
+These operators add or subtract 1 from a variable. Simple, right?
+
+```c
+int counter = 0;
+counter++;    // counter becomes 1
+counter++;    // counter becomes 2
+counter--;    // counter becomes 1
+```
+
+**So why do people get confused?**
+
+Because there are TWO versions:
+
+| Version | Name | What it does |
+|---------|------|--------------|
+| `x++` | Post-increment | Use x, THEN increase it |
+| `++x` | Pre-increment | Increase x, THEN use it |
+
+**This matters. A lot.**
+
+```c
+int x = 5;
+int y = x++;   // y gets 5, THEN x becomes 6
+// After this line: x = 6, y = 5
+
+int a = 5;
+int b = ++a;   // a becomes 6, THEN b gets 6
+// After this line: a = 6, b = 6
+```
+
+**The Memory Trick:**
+
+- **Post**-increment: The `++` comes **after** the variable. It says: "Use me now, party later."
+- **Pre**-increment: The `++` comes **before** the variable. It says: "Party now, then use me."
+
+```c
+int i = 10;
+printf("%d\n", i++);  // Prints 10, then i becomes 11
+printf("%d\n", i);    // Prints 11
+
+int j = 10;
+printf("%d\n", ++j);  // j becomes 11, then prints 11
+printf("%d\n", j);    // Prints 11
+```
+
+**When do you use each? Here's the rule of thumb:**
+
+| Use Case | Use | Why |
+|----------|-----|-----|
+| Just want to add 1, don't care about the value | `x++` | It's what most people expect |
+| Need the NEW value right away | `++x` | You want the value AFTER incrementing |
+| Need the OLD value before incrementing | `x++` | You want to use the current value, then update |
+
+```c
+// Real example: copying an array
+int source[3] = {10, 20, 30};
+int dest[3];
+int i = 0;
+
+// Post-increment: use i, THEN increase it
+dest[i++] = source[i];  // Wait... this is actually WRONG! Let me explain.
+
+// Better example:
+int index = 0;
+dest[index] = source[index];
+index++;  // Separate increment is clearer for beginners
+```
