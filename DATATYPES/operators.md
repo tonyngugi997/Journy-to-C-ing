@@ -492,3 +492,40 @@ int main() {
     return 0;
 }
 ```
+
+### Short-Circuit Evaluation (A Cool Quirk)
+
+C is lazy. Really lazy. When evaluating logical operators, it stops as soon as it knows the answer.
+
+```c
+int x = 5;
+int y = 0;
+
+// In AND (&&), if the FIRST thing is false, it doesn't check the rest
+if (y != 0 && x / y > 2) {
+    // This will NEVER run the division because y != 0 is false
+    // GOOD! Because dividing by zero would crash.
+}
+
+// In OR (||), if the FIRST thing is true, it doesn't check the rest
+if (x > 0 || someExpensiveFunction()) {
+    // If x > 0 is true, it never calls someExpensiveFunction()
+    // This saves time!
+}
+```
+
+**Why this matters:** You can write safer code by putting checks in the right order.
+
+```c
+// SAFE: Check if pointer exists BEFORE using it
+if (ptr != NULL && ptr->value > 10) {
+    // Only checks ptr->value if ptr is not NULL
+}
+
+// DANGEROUS: This could crash if ptr is NULL
+if (ptr->value > 10 && ptr != NULL) {
+    // Tries to access ptr->value BEFORE checking if ptr exists
+}
+```
+
+---
