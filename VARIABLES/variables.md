@@ -132,11 +132,3 @@ Now that you have containers, what can you put inside them?
 
 ---
 
-## 🏃 How to Run the Examples
-
-```bash
-gcc 01_declaring_variables.c -o variables
-./variables
-
-gcc 02_variables_are_addresses.c -o addresses
-./addresses
