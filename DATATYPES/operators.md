@@ -162,3 +162,37 @@ printf("You have %d full boxes and %d lonely cookies.\n", fullBoxes, leftover);
 | Get last digit of a number | `int last = num % 10;` | `1234 % 10 = 4` |
 | Wrap around an array | `index = (index + 1) % maxSize` | When you reach the end, go back to 0 |
 | Convert seconds to minutes | `int secondsLeft = totalSeconds % 60;` | Remainder after taking out full minutes |
+
+
+```c
+// Check if a number is even or odd
+int num = 17;
+if (num % 2 == 0) {
+    printf("%d is even\n", num);
+} else {
+    printf("%d is odd\n", num);  // This runs
+}
+```
+
+> **Warning:** `%` ONLY works with integers. You can't do `5.5 % 2`. C will yell at you.
+
+### Unary Arithmetic (One Operand Wonders)
+
+So far, all our operators worked on two things. But some operators work on ONE thing.
+
+| Operator | Meaning | Example | Result |
+|----------|---------|---------|--------|
+| `+` (unary) | Positive value | `+5` | `5` (useless, honestly) |
+| `-` (unary) | Negative value | `-5` | `-5` (actually useful) |
+
+```c
+int x = 5;
+int y = -x;   // y = -5
+int z = +x;   // z = 5 (why would you do this?)
+```
+
+The unary `-` is great for flipping signs. The unary `+` exists just to make the compiler happy. Don't overthink it.
+
+### Increment and Decrement (`++` and `--`) — The Most Confusing Operators in C
+
+These operators add or subtract 1 from a variable. Simple, right?
