@@ -102,3 +102,35 @@ float c = a / b;   // c = 2.333333
 printf("%f", 7 / 3.0);   // 2.333333 (3.0 is float, so result is float)
 printf("%f", 7.0 / 3);   // 2.333333 (7.0 is float)
 ```
+
+
+## Family 1: Arithmetic Operators (The Mathletes)
+
+These are your basic math operations. You've been using them since first grade. But C adds a few twists.
+
+### The Classics
+
+| Operator | Meaning | Example | Result |
+|----------|---------|---------|--------|
+| `+` | Addition | `7 + 3` | `10` |
+| `-` | Subtraction | `7 - 3` | `4` |
+| `*` | Multiplication | `7 * 3` | `21` |
+| `/` | Division | `7 / 3` | `2` (⚠️ WAIT, WHAT?) |
+| `%` | Modulo (remainder) | `7 % 3` | `1` |
+
+See that division? `7 / 3 = 2`? Not `2.333...`?
+
+**Welcome to the first trap of C programming.**
+
+### The Division Trap (Read This Twice)
+
+Here's the deal: When you divide two **integers**, C gives you back an **integer**. It doesn't round. It doesn't give you decimals. It **truncates** — it chops off the decimal part like a guillotine.
+
+> **The Golden Rule of Division:**
+> - `int / int` = `int` (decimals get CHOPPED OFF, not rounded)
+> - `float / anything` = `float`
+> - `anything / float` = `float`
+
+### The Modulo Operator (`%`) — The One Nobody Understands at First
+
+Modulo gives you the **remainder** after division. That's it. But it's INCREDIBLY useful.
