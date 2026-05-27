@@ -12,4 +12,4 @@ Write a C program that:
 
 > But before you answer this, walk through the next lesson on datatypes:
 >
-> [Datatypes](../datatypes/datatypes.md)
+> [Datatypes](../DATATYPES/datatypes.md)
