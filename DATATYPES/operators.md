@@ -134,3 +134,31 @@ Here's the deal: When you divide two **integers**, C gives you back an **integer
 ### The Modulo Operator (`%`) — The One Nobody Understands at First
 
 Modulo gives you the **remainder** after division. That's it. But it's INCREDIBLY useful.
+
+```c
+10 % 3 = 1   // 3 goes into 10 three times (9), left with 1
+7 % 5 = 2    // 5 goes into 7 once (5), left with 2
+8 % 2 = 0    // 2 goes into 8 four times (8), left with 0
+17 % 5 = 2   // 5 goes into 17 three times (15), left with 2
+```
+
+**Think of it like this:** You have 10 cookies. You want to put them in boxes of 3. You fill 3 boxes (9 cookies). You have 1 cookie left. That leftover? That's the modulo.
+
+```c
+int cookies = 10;
+int boxSize = 3;
+int fullBoxes = cookies / boxSize;   // 3 full boxes
+int leftover = cookies % boxSize;     // 1 cookie left (so sad)
+
+printf("You have %d full boxes and %d lonely cookies.\n", fullBoxes, leftover);
+```
+
+**Real-world uses of modulo (this is where it gets cool):**
+
+| Use Case | Code | Why it works |
+|----------|------|--------------|
+| Is a number even? | `if (num % 2 == 0)` | Even numbers divide by 2 with no remainder |
+| Is a number odd? | `if (num % 2 != 0)` | Odd numbers always have remainder 1 |
+| Get last digit of a number | `int last = num % 10;` | `1234 % 10 = 4` |
+| Wrap around an array | `index = (index + 1) % maxSize` | When you reach the end, go back to 0 |
+| Convert seconds to minutes | `int secondsLeft = totalSeconds % 60;` | Remainder after taking out full minutes |
