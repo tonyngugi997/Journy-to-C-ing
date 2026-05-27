@@ -529,3 +529,35 @@ if (ptr->value > 10 && ptr != NULL) {
 ```
 
 ---
+
+## Family 4: Assignment Operators (The Givers)
+
+These put values into variables. You already know the simple one:
+
+```c
+int x = 5;   // Assign 5 to x
+```
+
+But C has **compound assignment operators** that combine an operation with assignment:
+
+| Operator | Means | Example |
+|----------|-------|---------|
+| `+=` | Add and assign | `x += 3` is `x = x + 3` |
+| `-=` | Subtract and assign | `x -= 3` is `x = x - 3` |
+| `*=` | Multiply and assign | `x *= 3` is `x = x * 3` |
+| `/=` | Divide and assign | `x /= 3` is `x = x / 3` |
+| `%=` | Modulo and assign | `x %= 3` is `x = x % 3` |
+
+**Why use these?** They're shorter and sometimes clearer:
+
+```c
+// Long way
+score = score + 10;
+total = total * 2;
+count = count + 1;
+
+// Short way (same thing)
+score += 10;
+total *= 2;
+count += 1;  // Or count++ if just adding 1
+``
