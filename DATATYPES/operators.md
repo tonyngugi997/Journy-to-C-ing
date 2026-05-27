@@ -75,3 +75,30 @@ C has six types of operators. Think of them as six different toolboxes:
 We'll cover ALL of them. But first, let's start with the ones you'll use every single day.
 
 ---
+
+
+```c
+int a = 7;
+int b = 3;
+int c = a / b;   // c = 2. Not 2.333. Just 2.
+
+printf("%d", 5 / 2);  // Prints 2
+printf("%d", 9 / 4);  // Prints 2 (2.25 becomes 2)
+printf("%d", 1 / 2);  // Prints 0 (0.5 becomes 0... sad, isn't it?)
+```
+
+**"But that's wrong!"** you say.
+
+I know. It feels wrong. But C is old. Really old. Like, "born in 1972" old. And on old computers, decimals were expensive. So C said: "If you want decimals, you have to ask nicely."
+
+**How to get decimals?** Use `float` or `double`:
+
+```c
+float a = 7.0;
+float b = 3.0;
+float c = a / b;   // c = 2.333333
+
+// Or mix them:
+printf("%f", 7 / 3.0);   // 2.333333 (3.0 is float, so result is float)
+printf("%f", 7.0 / 3);   // 2.333333 (7.0 is float)
+```
