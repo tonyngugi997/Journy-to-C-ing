@@ -761,3 +761,38 @@ for (int i = 0, j = 10; i < j; i++, j--) {
 }
 ```
 
+### Cast Operator — The Identity Changer
+
+Forces a value to be treated as a different type.
+
+```c
+int a = 5;
+int b = 2;
+
+// Integer division (bad)
+float result1 = a / b;   // result1 = 2.0 (not 2.5!)
+
+// Cast to float (good)
+float result2 = (float)a / b;   // result2 = 2.5
+float result3 = a / (float)b;   // Also works
+```
+
+**Syntax:** `(new_type)value`
+
+### Address-of (`&`) and Dereference (`*`) — Preview of Pointers
+
+These are your first taste of **pointers** (Chapter 4). For now, just know:
+
+- `&` gets the **memory address** of a variable
+- `*` gets the **value at** a memory address
+
+```c
+int age = 25;
+int* ptr = &age;   // ptr stores the address of age
+printf("%p\n", &age);   // Prints memory address (like 0x7ffd8a9b3c)
+printf("%d\n", *ptr);   // Prints 25 (the value at that address)
+```
+
+We'll cover this in depth later. For now, just recognize them.
+
+---
