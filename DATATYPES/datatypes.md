@@ -73,3 +73,41 @@ When you print with `printf`, you must tell it what type to expect using **forma
 | `%x` | `int` | Hexadecimal | `printf("%x", num);` |
 | `%%` | None | Prints a percent sign | `printf("50%%");` |
 
+
+| Concept | What it means |
+|---------|----------------|
+| Data type | Tells the computer how to interpret a variable's memory |
+| `int` | Whole numbers (no decimals) |
+| `float` / `double` | Decimal numbers |
+| `char` | Single character (uses single quotes) |
+| `char[]` | String of characters (uses double quotes) |
+| Format specifier | Tells `printf` what type to expect |
+
+**Your takeaway:**
+
+> **A variable is *where*. A data type is *what*.**  
+> **Use the right type, or printf will lie to you.**
+
+---
+
+## Quick Quiz
+
+Match the variable with the correct format specifier:
+
+| Variable | Specifier (a-e) |
+|----------|-----------------|
+| `int count = 10;` | a) `%f` |
+| `float price = 5.99;` | b) `%c` |
+| `char letter = 'Z';` | c) `%d` |
+| `char name[20] = "Zoe";` | d) `%s` |
+| `double pi = 3.141592;` | e) `%lf` |
+
+**Answers:**
+
+- `int` → c (`%d`)
+- `float` → a (`%f`)
+- `char` → b (`%c`)
+- `char[]` → d (`%s`)
+- `double` → e (`%lf`)
+
+---
