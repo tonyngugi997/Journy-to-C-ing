@@ -31,7 +31,7 @@ A data type tells the computer:
 
 ## What We Used in the Last Lesson
 
-From `01_declaring_variables.c`:
+From [`01_declaring_variables.c`](../VARIABLES/01_declaring_variables.c):
 
 ```c
 char username[50] = "Tony";
@@ -111,3 +111,55 @@ Match the variable with the correct format specifier:
 - `double` → e (`%lf`)
 
 ---
+
+### Which Specifiers We Used in Lesson 1
+
+| Line of Code | Specifier | Correct? |
+|--------------|-----------|----------|
+| `printf("the username is %s\n", username);` | `%s` | ✅ Correct |
+| `printf("the age is %d\n", age);` | `%d` | ✅ Correct |
+| `printf("the password is %s\n", password);` | `%s` | ✅ Correct |
+| `printf("the gender is %d\n", gender);` | `%d` | ❌ Wrong |
+
+## Common Mistakes
+
+| Wrong | Correct | Why |
+|-------|---------|-----|
+| `char name[] = "Tony";`<br>`printf("%c", name);` | `printf("%s", name);` | `%c` is for single chars, `%s` for strings |
+| `int age = "twenty";` | `int age = 20;` | Strings can't be stored in `int` |
+| `float pi = 3.14;`<br>`printf("%d", pi);` | `printf("%f", pi);` | `%d` is for integers, `%f` for floats |
+| `char grade = "A";` | `char grade = 'A';` | Double quotes for strings, single quotes for chars |
+
+---
+
+## Summary Table: Type + Specifier + Example
+
+| Data Type | Format Specifier | Declaration | Print |
+|-----------|------------------|-------------|-------|
+| `int` | `%d` | `int x = 42;` | `printf("%d", x);` |
+| `float` | `%f` | `float y = 3.14;` | `printf("%f", y);` |
+| `double` | `%lf` | `double z = 3.14159;` | `printf("%lf", z);` |
+| `char` | `%c` | `char c = 'M';` | `printf("%c", c);` |
+| `char[]` | `%s` | `char s[10] = "Hi";` | `printf("%s", s);` |
+
+---
+
+## The Dark Truth
+
+Data types are a *lie we tell the compiler*.
+
+At the hardware level, memory is just bytes. A byte doesn't know if it's an `int`, a `char`, or part of a `float`. The type is a *contract* between you and the compiler:
+
+> *"Trust me, compiler. Treat these 4 bytes as an integer."*
+
+Break that contract, and you get **undefined behavior** — garbage output, crashes, or silent corruption.
+
+```c
+int x = 65;
+printf("%c", x);  // Prints 'A' (ASCII 65) — works, but is it a good idea?
+```
+
+Just because you *can* doesn't mean you *should*.
+
+---
+
