@@ -448,3 +448,47 @@ Is a not equal to b? 1
 Notice: 0 means NO (false). 1 means YES (true). Any non-zero number is considered true, but comparisons always return exactly 1 for true.
 
 ---
+
+## Family 3: Logical Operators (The Bouncers)
+
+Logical operators combine **true/false** values. They're like a bouncer at a club:
+
+- **AND (`&&`)** : "You need BOTH an ID AND a ticket to enter."
+- **OR (`||`)** : "You need EITHER a VIP pass OR a hand stamp to enter."
+- **NOT (`!`)** : "You are NOT on the blacklist? Come in."
+
+| Operator | Meaning | Truth | Example |
+|----------|---------|-------|---------|
+| `&&` | AND | True if BOTH are true | `(age >= 18) && (hasTicket)` |
+| `\|\|` | OR | True if AT LEAST ONE is true | `(isVip) \|\| (hasStamp)` |
+| `!` | NOT | True if false, false if true | `!isBlocked` |
+
+### The Truth Table (Memorize This)
+
+| a | b | a && b | a \|\| b | !a |
+|---|---|--------|---------|----|
+| 0 (false) | 0 (false) | 0 | 0 | 1 |
+| 0 (false) | 1 (true) | 0 | 1 | 1 |
+| 1 (true) | 0 (false) | 0 | 1 | 0 |
+| 1 (true) | 1 (true) | 1 | 1 | 0 |
+
+```c
+#include <stdio.h>
+
+int main() {
+    int age = 20;
+    int hasLicense = 1;  // 1 = true
+    int isDrunk = 0;     // 0 = false
+    
+    // Can they drive? Need age >= 16 AND license AND not drunk
+    int canDrive = (age >= 16) && hasLicense && !isDrunk;
+    printf("Can drive? %d\n", canDrive);  // 1 (true)
+    
+    // Club entry: age >= 18 OR with parent
+    int hasParent = 0;
+    int canEnter = (age >= 18) || hasParent;
+    printf("Can enter club? %d\n", canEnter);  // 1 (true)
+    
+    return 0;
+}
+```
