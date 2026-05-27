@@ -688,4 +688,39 @@ int main() {
 > **Note:** Modern compilers are smart. They'll optimize multiplication and division to shifts automatically. But bitwise operators are still essential for low-level programming, embedded systems, and game development.
 
 ---
+### `sizeof` — The Tape Measure
+
+Tells you how many bytes a type or variable takes in memory.
+
+```c
+#include <stdio.h>
+
+int main() {
+    printf("Size of int: %lu bytes\n", sizeof(int));     // Usually 4
+    printf("Size of char: %lu bytes\n", sizeof(char));   // Always 1
+    printf("Size of float: %lu bytes\n", sizeof(float)); // Usually 4
+    printf("Size of double: %lu bytes\n", sizeof(double));// Usually 8
+    
+    int x = 42;
+    printf("Size of x: %lu bytes\n", sizeof(x));         // Same as sizeof(int)
+    
+    return 0;
+}
+```
+
+**Why is this useful?** When you allocate memory manually (later lessons), you NEED to know how big things are.
+
+### The Conditional Operator `?:` — The One-Liner If-Else
+
+This is the only **ternary** operator (3 operands). It's a shortcut for simple if-else statements.
+
+```c
+// Syntax: condition ? value_if_true : value_if_false
+
+int age = 20;
+char* status = (age >= 18) ? "adult" : "minor";
+// status = "adult"
+
+int max = (a > b) ? a : b;  // Set max to whichever is larger
+```
 
