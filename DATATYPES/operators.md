@@ -196,3 +196,32 @@ The unary `-` is great for flipping signs. The unary `+` exists just to make the
 ### Increment and Decrement (`++` and `--`) — The Most Confusing Operators in C
 
 These operators add or subtract 1 from a variable. Simple, right?
+
+
+```c
+int counter = 0;
+counter++;    // counter becomes 1
+counter++;    // counter becomes 2
+counter--;    // counter becomes 1
+```
+
+**So why do people get confused?**
+
+Because there are TWO versions:
+
+| Version | Name | What it does |
+|---------|------|--------------|
+| `x++` | Post-increment | Use x, THEN increase it |
+| `++x` | Pre-increment | Increase x, THEN use it |
+
+**This matters. A lot.**
+
+```c
+int x = 5;
+int y = x++;   // y gets 5, THEN x becomes 6
+// After this line: x = 6, y = 5
+
+int a = 5;
+int b = ++a;   // a becomes 6, THEN b gets 6
+// After this line: a = 6, b = 6
+```
