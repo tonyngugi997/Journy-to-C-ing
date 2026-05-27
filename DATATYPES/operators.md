@@ -384,3 +384,36 @@ int index = 0;
 dest[index] = source[index];
 index++;  // Separate increment is clearer for beginners
 ```
+
+> **My advice:** When you're starting, just use `x++` by itself on its own line. Don't get fancy. Later, when you're comfortable, play with the difference.
+
+---
+
+## Family 2: Relational Operators (The Judges)
+
+These operators **compare** things. They answer questions like: "Is 5 greater than 3?" "Is the password correct?"
+
+The answer is always **1 (true)** or **0 (false)**.
+
+| Operator | Meaning | Example | Result |
+|----------|---------|---------|--------|
+| `<` | Less than | `5 < 3` | `0` (false) |
+| `>` | Greater than | `5 > 3` | `1` (true) |
+| `<=` | Less than or equal | `5 <= 5` | `1` (true) |
+| `>=` | Greater than or equal | `5 >= 7` | `0` (false) |
+| `==` | Equal to (DOUBLE equals!) | `5 == 5` | `1` (true) |
+| `!=` | Not equal to | `5 != 3` | `1` (true) |
+
+**THE MOST COMMON BUG IN C HISTORY:**
+
+```c
+// This is WRONG:
+if (x = 5) {   // SINGLE equals is ASSIGNMENT, not comparison!
+    printf("x is 5");
+}
+
+// This is CORRECT:
+if (x == 5) {  // DOUBLE equals is COMPARISON
+    printf("x is 5");
+}
+```
