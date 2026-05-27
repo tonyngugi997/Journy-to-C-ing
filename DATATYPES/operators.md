@@ -622,3 +622,36 @@ Decimal 3 in binary (8 bits): 00000011
   1: 00000001   (only the last bit is 1 in both)
 ```
 
+**OR (`|`):** At least one is 1
+```
+  5: 00000101
+| 3: 00000011
+--------------
+  7: 00000111
+```
+
+**XOR (`^`):** Exactly one is 1 (different)
+```
+  5: 00000101
+^ 3: 00000011
+--------------
+  6: 00000110
+```
+
+**NOT (`~`):** Flip everything
+```
+~5: 11111010  (which is -6 in two's complement)
+```
+
+**Left Shift (`<<`):** Move bits left (multiply by 2)
+```
+5 << 1 = 10   (00000101 becomes 00001010)
+5 << 2 = 20   (00000101 becomes 00010100)
+5 << 3 = 40
+```
+
+**Right Shift (`>>`):** Move bits right (divide by 2)
+```
+20 >> 1 = 10   (00010100 becomes 00001010)
+20 >> 2 = 5    (00010100 becomes 00000101)
+
