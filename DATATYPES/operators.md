@@ -838,4 +838,41 @@ int result = a + ((b * c) / d) - e;
 ```
 
 Parentheses are free. Confusion is expensive. Use parentheses.
+Here's where things get messy. In math, you know PEMDAS:
+
+```
+
+### Examples That Will Save You Hours
+
+```c
+// BAD: This doesn't do what you think
+if (x & y == 0)   // Actually: if (x & (y == 0)) — wrong!
+
+// GOOD: Use parentheses to be clear
+if ((x & y) == 0)   // Now it does what you want
+
+// BAD: Assignment vs comparison
+if (x = 5)   // Always true (and changes x!)
+
+// GOOD: What you probably meant
+if (x == 5)  // Actual comparison
+
+// Pro tip: Some people write this to catch the bug
+if (5 == x)  // If you accidentally write 5 = x, compiler ERROR
+```
+
+---
+
+## Common Mistakes (Learn From My Pain)
+
+| Wrong Code | What Happens | Correct Code |
+|------------|--------------|--------------|
+| `int x = 5 / 2;` expecting 2.5 | `x = 2` | `float x = 5.0 / 2.0;` |
+| `if (x = 5)` | Always true, changes x | `if (x == 5)` |
+| `printf("%d", 5 % 2.5);` | Compiler error | `5 % 2` (integers only) |
+| `while (x = getchar())` | Assignment, not comparison | `while ((x = getchar()) != EOF)` |
+| `if (x & y == 0)` | Wrong order | `if ((x & y) == 0)` |
+| `int a, b = 5;` | Only b is 5, a is garbage | `int a = 5, b = 5;` |
+
+---
 
