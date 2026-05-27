@@ -1042,3 +1042,68 @@ int main() {
 }
 ```
 
+
+### Exercise 5: Temperature Converter (All Together)
+
+```c
+#include <stdio.h>
+
+int main() {
+    float celsius = 25.0;
+    float fahrenheit;
+    
+    // Convert: F = (C * 9/5) + 32
+    fahrenheit = (celsius * 9.0 / 5.0) + 32.0;
+    
+    printf("%.1f°C = %.1f°F\n", celsius, fahrenheit);
+    
+    // Bonus: Is it hot? (above 80°F)
+    int isHot = fahrenheit > 80.0;
+    printf("Is it hot? %s\n", isHot ? "Yes" : "No");
+    
+    return 0;
+}
+```
+
+---
+
+## Summary: What You Need To Know
+
+| Concept | The Short Version |
+|---------|-------------------|
+| **Arithmetic** | `+ - * / %` — Watch out for integer division |
+| **Relational** | `< > <= >= == !=` — Returns 0 or 1 |
+| **Logical** | `&& || !` — Short-circuits, so order matters |
+| **Assignment** | `= += -= *= /= %=` — Left side must be variable |
+| **Increment/Decrement** | `++ --` — Pre vs post matters when used in expressions |
+| **Precedence** | Use parentheses unless it's dead simple |
+| **The Golden Rule** | When in doubt, add parentheses |
+
+**Your takeaway:**
+
+> **Variables store data. Operators transform it.**
+> 
+> **Without operators, your program is just a filing cabinet.**
+> 
+> **With operators, it's a living, breathing machine.**
+
+---
+
+## Next Lesson
+
+**Chapter 4: Input with `scanf` — Making Programs Interactive**
+
+You've been hardcoding values (`int age = 25`). That's boring. What if the user could type their own age?
+
+**Preview:**
+
+```c
+int age;
+printf("Enter your age: ");
+scanf("%d", &age);  // Wait for user to type something
+printf("You are %d years old\n", age);
+```
+
+That's `scanf`. And it's your next step.
+
+---
