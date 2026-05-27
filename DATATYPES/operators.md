@@ -560,4 +560,33 @@ count = count + 1;
 score += 10;
 total *= 2;
 count += 1;  // Or count++ if just adding 1
-``
+```
+
+```c
+#include <stdio.h>
+
+int main() {
+    int score = 100;
+    
+    printf("Starting score: %d\n", score);  // 100
+    
+    score += 50;   // score = 150
+    printf("After bonus: %d\n", score);
+    
+    score -= 25;   // score = 125
+    printf("After penalty: %d\n", score);
+    
+    score *= 2;    // score = 250
+    printf("After doubling: %d\n", score);
+    
+    score /= 10;   // score = 25
+    printf("After dividing: %d\n", score);
+    
+    return 0;
+}
+```
+
+> **Pro tip:** Compound operators are especially useful in loops. You'll see them constantly in real code.
+
+---
+
