@@ -724,3 +724,40 @@ char* status = (age >= 18) ? "adult" : "minor";
 int max = (a > b) ? a : b;  // Set max to whichever is larger
 ```
 
+## Family 6: Other Operators (The Weird Cousins)
+
+
+**Compare these:**
+
+```c
+// Long way (5 lines)
+int max;
+if (a > b) {
+    max = a;
+} else {
+    max = b;
+}
+
+// Short way (1 line)
+int max = (a > b) ? a : b;
+```
+
+**When to use it:** For simple, single-line decisions. NOT for complex logic.
+
+### The Comma Operator `,` — The "Do Both" Operator
+
+Evaluates the left side, throws it away, then evaluates the right side and returns it.
+
+```c
+int x = (1, 2, 3, 4, 5);  // x = 5 (last value wins)
+int y = (printf("Hello "), 10 + 20);  // Prints "Hello ", then y = 30
+```
+
+**Real use case:** In `for` loops when you need multiple initializations:
+
+```c
+for (int i = 0, j = 10; i < j; i++, j--) {
+    // i increases, j decreases
+}
+```
+
