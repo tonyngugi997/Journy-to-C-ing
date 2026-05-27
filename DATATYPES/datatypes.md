@@ -161,6 +161,7 @@ printf("%c", x);  // Prints 'A' (ASCII 65) — works, but is it a good idea?
 
 Just because you *can* doesn't mean you *should*.
 
-Now that you've understood datatypes, you can step back and try solving the [`test.md`](../VARIABLES/test.md) quiz.
+Now that you've understood datatypes, try solving the [`test.md`](../VARIABLES/test.md) quiz.
+
 ---
 
