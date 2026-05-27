@@ -46,12 +46,37 @@ That's where data types come in. But again — that's the next lesson.
 
 Even without knowing data types deeply, you can already *declare* variables.
 
-👉 **[See `01_declaring_variables.c`](./01_declaring_variables.c)** — Variables as labeled containers.
+***QUIZ:* `Write a program that store: a username, age, password`
 
-Those `char[50]`, `int`, `char` things you see in the file? **Those are data types (preview).**  
+👉 **[See answer at:  `01_declaring_variables.c`](./01_declaring_variables.c)** — Variables as labeled containers.
+
+Those `char`, `int`, `char` things you see in the file? **Those are data types (preview).**  
+When declaring a variable, you must start with the datatype.
 For now, just see the pattern:
 
 > **Every variable has a name (`username`, `age`) and a type (`char[]`, `int`).**
+
+### 🔡 Escape Sequences: `\n`, `\t`, and more
+
+In C strings, a backslash `\` starts an escape sequence. That means the next character is not printed literally — it tells the computer to do something special.
+
+- `\n` = newline (move to the next line)
+- `\t` = tab (insert horizontal spacing)
+- `\\` = backslash (print a literal `\`)
+- `\"` = double quote (print `"` inside a string)
+
+Example:
+```c
+printf("Hello\nWorld\t!\n");
+```
+This prints:
+- `Hello`
+- then a new line
+- `World`
+- then a tab
+- then `!`
+
+Escape sequences let you format output cleanly without extra text.
 
 The name answers: *"Where do I put this?"*  
 The type answers: *"How much space? What kind of value?"*
