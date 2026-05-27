@@ -796,3 +796,46 @@ printf("%d\n", *ptr);   // Prints 25 (the value at that address)
 We'll cover this in depth later. For now, just recognize them.
 
 ---
+
+Parentheses → Exponents → Multiplication/Division → Addition/Subtraction
+```
+
+C has a similar order. But MUCH more complicated.
+
+**The problem:** `5 + 3 * 2` could be `(5+3)*2 = 16` or `5+(3*2) = 11`. Which is it?
+
+C says: Multiplication (`*`) happens before addition (`+`). So `5 + 3 * 2 = 11`.
+
+**Precedence = "Who goes first"**
+
+**Associativity = "When they're equal, who wins?"**
+
+### The Short Version (What You Need Most Of The Time)
+
+| Precedence | Operators | Notes |
+|------------|-----------|-------|
+| 1 (highest) | `()` | Parentheses FIRST. Always. |
+| 2 | `++ -- !` (unary) | Increment, decrement, NOT |
+| 3 | `* / %` | Multiply, Divide, Modulo |
+| 4 | `+ -` | Addition, Subtraction |
+| 5 | `< > <= >=` | Comparisons |
+| 6 | `== !=` | Equality |
+| 7 | `&&` | Logical AND |
+| 8 | `\|\|` | Logical OR |
+| 9 | `?:` | Ternary |
+| 10 (lowest) | `=` | Assignment |
+
+### The Golden Rule of Precedence:
+
+**WHEN IN DOUBT, USE PARENTHESES.**
+
+```c
+// Confusing (who knows what happens?)
+int result = a + b * c / d - e;
+
+// Clear (everyone understands)
+int result = a + ((b * c) / d) - e;
+```
+
+Parentheses are free. Confusion is expensive. Use parentheses.
+
