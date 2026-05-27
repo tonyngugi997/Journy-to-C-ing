@@ -590,3 +590,35 @@ int main() {
 
 ---
 
+## Family 5: Bitwise Operators (The Bit Surgeons)
+
+**Warning:** This section is more advanced. If your brain is full, skip it and come back later. You can write lots of C code without ever using bitwise operators.
+
+But if you want to be a **real** C programmer, learn them. They're what make C fast.
+
+Bitwise operators work on individual **bits** (0s and 1s). Every number in your computer is stored as bits.
+
+```
+Decimal 5 in binary (8 bits): 00000101
+Decimal 3 in binary (8 bits): 00000011
+```
+
+| Operator | Name | What it does |
+|----------|------|--------------|
+| `&` | AND | Bit is 1 ONLY if BOTH bits are 1 |
+| `\|` | OR | Bit is 1 if AT LEAST ONE bit is 1 |
+| `^` | XOR | Bit is 1 if bits are DIFFERENT |
+| `~` | NOT | Flips all bits (0 becomes 1, 1 becomes 0) |
+| `<<` | Left shift | Shifts bits left (multiplies by 2 for each shift) |
+| `>>` | Right shift | Shifts bits right (divides by 2 for each shift) |
+
+### How They Work (With Examples)
+
+**AND (`&`):** Both must be 1
+```
+  5: 00000101
+& 3: 00000011
+--------------
+  1: 00000001   (only the last bit is 1 in both)
+```
+
