@@ -417,3 +417,34 @@ if (x == 5) {  // DOUBLE equals is COMPARISON
     printf("x is 5");
 }
 ```
+
+**Why is this a bug?** Because `if (x = 5)` works! It assigns 5 to x, then checks if 5 is true (non-zero = true). So it's ALWAYS true. Your program will run but be completely wrong.
+
+> **The Golden Rule:** Use `=` for assignment. Use `==` for comparison. Mix them up, and your program will lie to you.
+
+```c
+#include <stdio.h>
+
+int main() {
+    int a = 25, b = 5;
+    
+    printf("Is a less than b? %d\n", a < b);     // 0 (false)
+    printf("Is a greater than b? %d\n", a > b);  // 1 (true)
+    printf("Is a equal to b? %d\n", a == b);     // 0 (false)
+    printf("Is a not equal to b? %d\n", a != b); // 1 (true)
+    
+    return 0;
+}
+```
+
+**Output:**
+```
+Is a less than b? 0
+Is a greater than b? 1
+Is a equal to b? 0
+Is a not equal to b? 1
+```
+
+Notice: 0 means NO (false). 1 means YES (true). Any non-zero number is considered true, but comparisons always return exactly 1 for true.
+
+---
