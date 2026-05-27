@@ -996,4 +996,49 @@ int main() {
     return 0;
 }
 ```
+### Exercise 3: Pre vs Post Increment
+
+```c
+#include <stdio.h>
+
+int main() {
+    int a = 5, b = 5;
+    int c, d;
+    
+    c = a++;  // What happens here?
+    d = ++b;  // What happens here?
+    
+    printf("a = %d, c = %d\n", a, c);  // Predict first!
+    printf("b = %d, d = %d\n", b, d);  // Then run
+    
+    return 0;
+}
+```
+
+### Exercise 4: Logical Short-Circuit
+
+```c
+#include <stdio.h>
+
+int dangerous() {
+    printf("dangerous() was called!\n");
+    return 1;
+}
+
+int main() {
+    int x = 0;
+    
+    printf("Testing AND:\n");
+    if (x != 0 && dangerous()) {
+        printf("Inside AND\n");
+    }
+    
+    printf("\nTesting OR:\n");
+    if (x == 0 || dangerous()) {
+        printf("Inside OR\n");
+    }
+    
+    return 0;
+}
+```
 
