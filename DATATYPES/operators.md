@@ -56,3 +56,22 @@ int max = (a > b) ? a : b;  // Ternary: THREE operands (drama)
 > **Fun fact:** The ternary operator `?:` is the only operator in C that needs three operands. It's like that one friend who can't make a decision without consulting two other people.
 
 ---
+
+
+
+## The Six Families of Operators
+
+C has six types of operators. Think of them as six different toolboxes:
+
+| Family | Job Description | Everyday Analogy |
+|--------|----------------|------------------|
+| **Arithmetic** | Do math | Your calculator |
+| **Relational** | Compare things | The judge in a boxing match |
+| **Logical** | Combine true/false | The bouncer at a club ("you need ID AND a ticket") |
+| **Bitwise** | Mess with individual bits | A surgeon working on bones instead of the whole body |
+| **Assignment** | Give values to variables | Putting groceries in your fridge |
+| **Other** | The weird cousins | `sizeof`, `&`, `*`, `?:`, `,`, cast |
+
+We'll cover ALL of them. But first, let's start with the ones you'll use every single day.
+
+---
