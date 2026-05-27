@@ -654,4 +654,38 @@ Decimal 3 in binary (8 bits): 00000011
 ```
 20 >> 1 = 10   (00010100 becomes 00001010)
 20 >> 2 = 5    (00010100 becomes 00000101)
+```
+
+```c
+#include <stdio.h>
+
+int main() {
+    int a = 5;  // 0101 in binary
+    int b = 3;  // 0011 in binary
+    
+    printf("a & b = %d\n", a & b);   // 1 (0001)
+    printf("a | b = %d\n", a | b);   // 7 (0111)
+    printf("a ^ b = %d\n", a ^ b);   // 6 (0110)
+    printf("~a = %d\n", ~a);         // -6
+    printf("a << 1 = %d\n", a << 1); // 10
+    printf("a >> 1 = %d\n", a >> 1); // 2
+    
+    return 0;
+}
+```
+
+**Real-world uses of bitwise operators:**
+
+| Use Case | Code | Why it's faster |
+|----------|------|-----------------|
+| Multiply by 2 | `x << 1` | Shift is faster than multiplication |
+| Divide by 2 | `x >> 1` | Shift is faster than division |
+| Check if even | `if (x & 1 == 0)` | Checks only the last bit |
+| Set a flag | `flags \|= MASK` | Turns on a specific bit |
+| Clear a flag | `flags &= ~MASK` | Turns off a specific bit |
+| Toggle a flag | `flags ^= MASK` | Flips a specific bit |
+
+> **Note:** Modern compilers are smart. They'll optimize multiplication and division to shifts automatically. But bitwise operators are still essential for low-level programming, embedded systems, and game development.
+
+---
 
