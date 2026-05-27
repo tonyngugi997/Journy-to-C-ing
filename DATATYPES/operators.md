@@ -23,3 +23,36 @@ Operators are what make things *happen*. They're the verbs. The action. The *oom
 > *"Did the user enter the correct password?"* — that's operators all the way down.
 
 ---
+## The Cast of Characters
+
+Before we dive in, let me tell you something that confused me for weeks:
+
+Every operator works on **operands**. Operands are just fancy programmer-speak for "the things the operator touches."
+
+```c
+int sum = 5 + 3;
+```
+
+- `5` and `3` are **operands** (the poor souls being operated on)
+- `+` is the **operator** (the bully doing the operation)
+- `sum` is the **result** (the aftermath)
+
+Simple, right? Now let me blow your mind:
+
+**Some operators work on ONE operand. Some work on TWO. ONE works on THREE.**
+
+| Type | Number of Operands | Nickname | Examples |
+|------|-------------------|----------|----------|
+| Unary | 1 | "The Loners" | `++`, `--`, `!`, `-` |
+| Binary | 2 | "The Couples" | `+`, `-`, `*`, `/`, `%`, `=`, `==`, `<`, `>` |
+| Ternary | 3 | "The Love Triangle" | `? :` (the only one) |
+
+```c
+int x = 5;     // Binary: = works on x AND 5 (a couple)
+x++;           // Unary: ++ works on JUST x (a loner)
+int max = (a > b) ? a : b;  // Ternary: THREE operands (drama)
+```
+
+> **Fun fact:** The ternary operator `?:` is the only operator in C that needs three operands. It's like that one friend who can't make a decision without consulting two other people.
+
+---
