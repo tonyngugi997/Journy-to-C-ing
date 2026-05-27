@@ -954,3 +954,46 @@ sizeof()   // Size in bytes
 
 ---
 
+## Practice Exercises
+
+Don't just read. **Type these.** Run them. Break them. Fix them.
+
+### Exercise 1: The Division Explorer
+
+```c
+#include <stdio.h>
+
+int main() {
+    // Predict what each will print, then run to check
+    printf("5 / 2 = %d\n", 5 / 2);
+    printf("5.0 / 2 = %f\n", 5.0 / 2);
+    printf("5 / 2.0 = %f\n", 5 / 2.0);
+    printf("5.0 / 2.0 = %f\n", 5.0 / 2.0);
+    printf("(float)5 / 2 = %f\n", (float)5 / 2);
+    
+    return 0;
+}
+```
+
+### Exercise 2: The Modulo Challenge
+
+```c
+#include <stdio.h>
+
+int main() {
+    int minutes = 375;  // 375 minutes = 6 hours and 15 minutes
+    
+    // Calculate hours and remaining minutes using / and %
+    int hours = minutes / 60;
+    int remaining = minutes % 60;
+    
+    printf("%d minutes is %d hours and %d minutes\n", minutes, hours, remaining);
+    
+    // Bonus: Is 42 even or odd?
+    int num = 42;
+    printf("%d is %s\n", num, (num % 2 == 0) ? "even" : "odd");
+    
+    return 0;
+}
+```
+
