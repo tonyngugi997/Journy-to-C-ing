@@ -455,3 +455,37 @@ int main() {
     return 0;
 }
 ```
+
+
+### Exercise 5: Complete Interactive Program
+
+Write a program that:
+1. Asks for the user's name
+2. Asks for their age
+3. Asks for their favorite number
+4. Prints a personalized message
+5. Tells them if they can vote (age >= 18)
+6. Prints their favorite number multiplied by 2
+
+---
+
+## The Dark Truth (Come Back Here Later)
+
+`scanf()` is **dangerous**.
+
+It's a relic from the 1970s. It assumes the user will behave perfectly. Users don't.
+
+- They type letters when you asked for numbers
+- They type `"five"` instead of `5`
+- They type nothing and just press Enter
+- They type 500 characters when your buffer holds 50
+
+**Real programs don't trust users.** Real programs use `fgets()` + `sscanf()` and validate everything.
+
+But you're learning. Use `scanf()` for now. Just know that in the real world, you'll be told: *"Don't use scanf(). It's evil."*
+
+And they'll be right.
+
+But you need to know the evil to appreciate the good.
+
+---
