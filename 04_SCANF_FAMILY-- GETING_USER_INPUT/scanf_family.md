@@ -174,3 +174,29 @@ sscanf(buffer, "%d", &age);    // Parse it
 ```
 
 > **Pro tip:** Real C programmers often avoid `scanf()` and use `fgets()` + `sscanf()` instead. It's safer and more predictable.
+### 3. `fscanf()` — From File
+
+```c
+FILE *file = fopen("saved_data.txt", "r");
+int savedAge;
+fscanf(file, "%d", &savedAge);  // Reads from file, not keyboard
+fclose(file);
+printf("Loaded from file: %d\n", savedAge);
+```
+
+---
+
+## The Return Value of `scanf()` (Error Checking)
+
+`scanf()` returns the **number of successful conversions**.
+
+```c
+int age;
+int result = scanf("%d", &age);
+
+if (result == 1) {
+    printf("Success! Age = %d\n", age);
+} else {
+    printf("Failed! You didn't enter a number.\n");
+}
+```
