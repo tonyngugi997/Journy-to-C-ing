@@ -90,7 +90,7 @@ They are not.
 
 A variable is a *lie we agree to tell the machine*. The machine only understands memory addresses and raw bits. A variable is a **human-friendly label** for a chunk of bytes.
 
-👉 **[See `02_variables_are_addresses.c`](./02_variables_are_addresses.c)** — See the address behind the name.
+👉 **See the address behind the name.**
 
 That's the deal. You get names. The machine gets addresses. Everyone wins — until you forget that `age` is *just a label*.
 
@@ -121,7 +121,7 @@ Try these yourself. No peeking at the solutions until you've struggled.
 | Declare 3 different variables of different types. Print all their addresses. | `exercise2_your_solution.c` |
 | What happens if you declare a variable but never use it? (Compile with `-Wall`) | `exercise3_your_solution.c` |
 
-👉 **Solutions (try first!):** [`solutions/`](./solutions/)
+👉 Solutions (try first!): create a `solutions/` folder and add your answers there.
 
 ---
 

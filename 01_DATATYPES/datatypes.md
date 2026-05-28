@@ -31,7 +31,7 @@ A data type tells the computer:
 
 ## What We Used in the Last Lesson
 
-From [`01_declaring_variables.c`](../VARIABLES/01_declaring_variables.c):
+From [`01_declaring_variables.c`](../02_VARIABLES/01_declaring_variables.c):
 
 ```c
 char username[50] = "Tony";
@@ -161,7 +161,7 @@ printf("%c", x);  // Prints 'A' (ASCII 65) — works, but is it a good idea?
 
 Just because you *can* doesn't mean you *should*.
 
-Now that you've understood datatypes, try solving the [`test.md`](../VARIABLES/test.md) quiz. After trying (and I mean trying), check out my solution in [datatypes.c](datatypes.c).
+Now that you've understood datatypes, try solving the [`test.md`](../02_VARIABLES/test.md) quiz. After trying (and I mean trying), check out my solution in [datatypes.c](datatypes.c).
 
 ---
 
