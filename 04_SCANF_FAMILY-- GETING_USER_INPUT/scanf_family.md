@@ -338,4 +338,28 @@ int main() {
     
     return 0;
 }
-``
+```
+
+**Why this is better:**
+
+| `scanf()` alone | `fgets()` + `sscanf()` |
+|----------------|------------------------|
+| Leaves newline in buffer | Reads entire line, newline and all |
+| Buffer overflow risk | Safe (you specify max length) |
+| Hard to recover from bad input | You can try parsing differently |
+| Mixed behavior with spaces | Predictable |
+
+---
+
+## Comparison Table: `printf()` vs `scanf()`
+
+| Aspect | `printf()` | `scanf()` |
+|--------|-----------|-----------|
+| Direction | Program → User | User → Program |
+| Needs `&`? | No (needs value) | Yes (needs address) |
+| `%f` for double | Yes | No (needs `%lf`) |
+| `%s` stops at space? | N/A (printing) | Yes (reading) |
+| Returns | Number of chars printed | Number of items successfully read |
+| Safety | Generally safe | Buffer overflow risk |
+
+---
