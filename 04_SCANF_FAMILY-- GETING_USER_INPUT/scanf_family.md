@@ -238,3 +238,31 @@ scanf("%s", &name);   // EXTRA & — WRONG (but might SEEM to work)
 `name` already IS an address. `&name` is the address of the address. It might appear to work, but it's wrong.
 
 **Correct:** `scanf("%s", name);`
+
+### Pitfall 3: Mixing `scanf()` with `fgets()`
+
+```c
+int age;
+char name[50];
+
+printf("Enter age: ");
+scanf("%d", &age);    // User types 25 and presses Enter
+
+printf("Enter name: ");
+fgets(name, 50, stdin);   // This gets an EMPTY line! The Enter from before!
+```
+
+**Why?** `scanf()` leaves the newline (`\n`) in the buffer. `fgets()` reads it immediately.
+
+**Solution 1:** Use `fgets()` + `sscanf()` for everything:
+
+```c
+char buffer[100];
+printf("Enter age: ");
+fgets(buffer, 100, stdin);
+sscanf(buffer, "%d", &age);
+
+printf("Enter name: ");
+fgets(name, 50, stdin);
+// name now has the newline at the end though...
+`
