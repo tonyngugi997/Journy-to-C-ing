@@ -217,3 +217,24 @@ if (count == 2) {
 ```
 
 ---
+## Common Pitfalls 
+
+### Pitfall 1: Forgetting `&`
+
+```c
+int age;
+scanf("%d", age);   // MISSING & — CRASH or WEIRD BEHAVIOR
+```
+
+`scanf()` thinks `age` contains an address. It doesn't. It contains garbage. It writes to random memory. **Your program crashes or corrupts data.**
+
+### Pitfall 2: Using `&` with Strings
+
+```c
+char name[50];
+scanf("%s", &name);   // EXTRA & — WRONG (but might SEEM to work)
+```
+
+`name` already IS an address. `&name` is the address of the address. It might appear to work, but it's wrong.
+
+**Correct:** `scanf("%s", name);`
