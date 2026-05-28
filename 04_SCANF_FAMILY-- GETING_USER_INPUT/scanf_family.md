@@ -309,3 +309,33 @@ scanf("%9s", name);   // Reads max 9 chars + null terminator
 ```
 
 ---
+## Complete Example: Interactive User Profile
+
+The full interactive profile example has been moved into source files. See [`interactive_profile.c`](interactive_profile.c) for the basic `scanf()` version, or [`interactive_profile_fgets.c`](interactive_profile_fgets.c) for the safer `fgets()` + `sscanf()` version.
+
+---
+
+## The Safe Pattern: `fgets()` + `sscanf()`
+
+Real-world C code often avoids `scanf()` for user input. Here's the safer pattern:
+
+```c
+#include <stdio.h>
+
+int main() {
+    char buffer[100];
+    int age;
+    float salary;
+    
+    printf("Enter age and salary: ");
+    fgets(buffer, sizeof(buffer), stdin);  // Read ENTIRE line safely
+    
+    if (sscanf(buffer, "%d %f", &age, &salary) == 2) {
+        printf("Age: %d, Salary: %.2f\n", age, salary);
+    } else {
+        printf("Invalid input! Need age and salary.\n");
+    }
+    
+    return 0;
+}
+``
