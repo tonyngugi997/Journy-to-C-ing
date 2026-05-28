@@ -395,3 +395,22 @@ int main() {
     return 0;
 }
 ```
+**Modify it:** Ask for two numbers and print their sum.
+
+### Exercise 2: Temperature Converter with User Input
+
+```c
+#include <stdio.h>
+
+int main() {
+    float celsius;
+    
+    printf("Enter temperature in Celsius: ");
+    scanf("%f", &celsius);
+    
+    float fahrenheit = (celsius * 9.0 / 5.0) + 32.0;
+    printf("%.1f°C = %.1f°F\n", celsius, fahrenheit);
+    
+    return 0;
+}
+```
