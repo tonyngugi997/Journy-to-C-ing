@@ -200,3 +200,20 @@ if (result == 1) {
     printf("Failed! You didn't enter a number.\n");
 }
 ```
+
+**Multiple inputs:**
+
+```c
+int x, y;
+int count = scanf("%d %d", &x, &y);
+
+if (count == 2) {
+    printf("Got both: %d and %d\n", x, y);
+} else if (count == 1) {
+    printf("Only got x = %d, missing y\n", x);
+} else {
+    printf("Failed to read anything\n");
+}
+```
+
+---
