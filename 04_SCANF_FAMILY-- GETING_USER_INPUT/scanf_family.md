@@ -135,3 +135,42 @@ User types: `25 12 2024` → Program reads all three.
 **Whitespace is the separator.** Space, tab, or Enter — all work.
 
 ---
+
+## The `scanf` Family (Three Functions, One Purpose)
+
+`scanf()` has two siblings you'll use constantly:
+
+| Function | Reads From | Real-world use |
+|----------|-----------|----------------|
+| `scanf()` | Keyboard (`stdin`) | Getting user input right now |
+| `sscanf()` | String (in memory) | Parsing text you already have |
+| `fscanf()` | File | Loading saved data from disk |
+
+### 1. `scanf()` — From Keyboard
+
+```c
+int age;
+scanf("%d", &age);
+```
+
+### 2. `sscanf()` — From String (Convert Text to Numbers)
+
+This is **incredibly useful**. You'll use this more than `scanf()` in real programs.
+
+```c
+char userInput[] = "42";
+int answer;
+sscanf(userInput, "%d", &answer);  // "42" (text) → 42 (number)
+printf("The answer is %d\n", answer);
+```
+
+**Why is this useful?** Because `scanf()` has issues with spaces and newlines. The safe pattern is:
+
+```c
+char buffer[100];
+printf("Enter your age: ");
+fgets(buffer, 100, stdin);     // Safe: gets entire line
+sscanf(buffer, "%d", &age);    // Parse it
+```
+
+> **Pro tip:** Real C programmers often avoid `scanf()` and use `fgets()` + `sscanf()` instead. It's safer and more predictable.
