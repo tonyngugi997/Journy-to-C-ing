@@ -414,3 +414,44 @@ int main() {
     return 0;
 }
 ```
+
+### Exercise 3: Input Validation
+
+```c
+#include <stdio.h>
+
+int main() {
+    int age;
+    int result;
+    
+    printf("Enter your age: ");
+    result = scanf("%d", &age);
+    
+    if (result == 1 && age > 0 && age < 150) {
+        printf("Valid age: %d\n", age);
+    } else {
+        printf("Invalid age! Please enter a positive number.\n");
+    }
+    
+    return 0;
+}
+```
+
+### Exercise 4: Using `sscanf()`
+
+```c
+#include <stdio.h>
+
+int main() {
+    char data[] = "Product: Laptop, Price: 999.99";
+    char product[50];
+    float price;
+    
+    sscanf(data, "Product: %49[^,], Price: %f", product, &price);
+    
+    printf("Product: %s\n", product);
+    printf("Price: $%.2f\n", price);
+    
+    return 0;
+}
+```
