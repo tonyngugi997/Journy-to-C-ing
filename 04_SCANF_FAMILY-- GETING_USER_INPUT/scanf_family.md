@@ -489,3 +489,44 @@ And they'll be right.
 But you need to know the evil to appreciate the good.
 
 ---
+
+## Summary: What You Need to Know
+
+| Concept | The Short Version |
+|---------|-------------------|
+| `scanf()` | Reads input from keyboard. Program STOPS and WAITS. |
+| `&` | "Address of" — tells `scanf()` WHERE to store data |
+| `%d %f %c %s` | Format specifiers — tell `scanf()` WHAT to expect |
+| `sscanf()` | Reads from a string (convert text to numbers) |
+| `fscanf()` | Reads from a file |
+| Return value | Number of successful reads — use for error checking |
+| Golden rule | `printf()` = values. `scanf()` = addresses (`&`). |
+| Safety | `fgets()` + `sscanf()` is safer than `scanf()` alone |
+
+**Your takeaway:**
+
+> **Hardcoding is guessing. Input is knowing.**
+>
+> **`scanf()` lets the user speak.**
+>
+> **A program without input is a lecture.**
+> **A program with input is a conversation.**
+
+---
+
+## Next Lesson
+
+**Chapter 5: Control Flow — Making Decisions (`if`, `else`, `switch`)**
+
+Now that your program can TALK to the user, it needs to THINK about what the user said.
+
+```c
+if (age >= 18) {
+    printf("You can vote!\n");
+} else {
+    printf("Too young to vote. Sorry.\n");
+}
+```
+
+That's `if`. That's decision-making. That's next.
+```
