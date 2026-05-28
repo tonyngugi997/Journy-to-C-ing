@@ -265,4 +265,24 @@ sscanf(buffer, "%d", &age);
 printf("Enter name: ");
 fgets(name, 50, stdin);
 // name now has the newline at the end though...
-`
+```
+
+**Solution 2:** Eat the newline with `getchar()`:
+
+```c
+scanf("%d", &age);
+getchar();  // Consumes the leftover newline
+fgets(name, 50, stdin);
+```
+
+### Pitfall 4: `%s` Stops at Spaces
+
+```c
+char fullName[100];
+printf("Enter your full name: ");
+scanf("%s", fullName);
+// User types: "Tony Ngugi"
+// fullName gets: "Tony" — "Ngugi" is left in buffer!
+```
+
+`%s` stops at the first whitespace. Use `fgets()` for strings with spaces:
