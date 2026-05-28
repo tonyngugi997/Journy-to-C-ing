@@ -41,3 +41,37 @@ When your program hits `scanf()`, it **freezes**. It sits there. Staring. Waitin
 **That's interactivity.**
 
 ---
+
+
+
+## The Mysterious `&` Symbol (Address-of)
+
+Here's something that confuses every beginner:
+
+```c
+scanf("%d", &age);   // Why the &?
+printf("%d", age);   // Why no & here?
+```
+
+**The short answer:**
+
+- `printf()` needs the **value** of `age` (what's inside the box)
+- `scanf()` needs the **location** of `age` (where the box is kept)
+
+`&` means *"address of"*. It tells `scanf()`: *"Hey, the variable `age` lives at memory address 0x7ffd8a9b3c. Go put the user's input there."*
+
+**The long answer (for later):** This is your first taste of **pointers**. `scanf()` needs to modify the original variable, not a copy. `&` gives it access to the original.
+
+**The golden rule you'll memorize:**
+
+> **`printf()` takes VALUES. `scanf()` takes ADDRESSES (`&`).**
+
+**Exception to the rule:** Strings (`char[]`) don't need `&` because the array name *is* an address.
+
+```c
+char name[50];
+scanf("%s", name);   // NO & before name (name IS an address)
+scanf("%d", &age);   // YES & before age (age is NOT an address)
+```
+
+---
