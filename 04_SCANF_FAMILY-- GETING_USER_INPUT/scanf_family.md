@@ -286,3 +286,26 @@ scanf("%s", fullName);
 ```
 
 `%s` stops at the first whitespace. Use `fgets()` for strings with spaces:
+```c
+char fullName[100];
+printf("Enter your full name: ");
+fgets(fullName, 100, stdin);  // Gets "Tony Stark\n"
+```
+
+### Pitfall 5: Buffer Overflow (Dangerous)
+
+```c
+char name[10];
+scanf("%s", name);   // User types "AlexanderTheGreat" — 17 chars into 10-byte buffer
+```
+
+**CRASH. CORRUPTION. SECURITY VULNERABILITY.**
+
+**Fix:** Limit the input length:
+
+```c
+char name[10];
+scanf("%9s", name);   // Reads max 9 chars + null terminator
+```
+
+---
