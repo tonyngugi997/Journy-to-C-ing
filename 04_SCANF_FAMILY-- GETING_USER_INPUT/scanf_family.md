@@ -118,3 +118,20 @@ scanf("%lf", &pi);  // %lf = long float = double
 `scanf()` is picky: `%f` for `float`, `%lf` for `double`.
 
 ---
+
+## Multiple Inputs in One Line
+
+You can read several values at once:
+
+```c
+int day, month, year;
+printf("Enter date (DD MM YYYY): ");
+scanf("%d %d %d", &day, &month, &year);
+printf("You entered: %d/%d/%d\n", day, month, year);
+```
+
+User types: `25 12 2024` → Program reads all three.
+
+**Whitespace is the separator.** Space, tab, or Enter — all work.
+
+---
