@@ -363,3 +363,35 @@ int main() {
 | Safety | Generally safe | Buffer overflow risk |
 
 ---
+## Quick Reference: `scanf()` Format Specifiers
+
+| Specifier | Variable Type | Needs `&`? |
+|-----------|--------------|-----------|
+| `%d` | `int` | Yes |
+| `%f` | `float` | Yes |
+| `%lf` | `double` | Yes |
+| `%c` | `char` | Yes |
+| `%s` | `char[]` | No |
+| `%x` | `int` (hex) | Yes |
+| `%o` | `int` (octal) | Yes |
+
+---
+
+## Practice Exercises
+
+### Exercise 1: Basic Input
+
+```c
+#include <stdio.h>
+
+int main() {
+    int favoriteNumber;
+    
+    printf("What's your favorite number? ");
+    scanf("%d", &favoriteNumber);
+    
+    printf("%d is a great number!\n", favoriteNumber);
+    
+    return 0;
+}
+```
