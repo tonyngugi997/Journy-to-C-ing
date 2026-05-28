@@ -75,3 +75,46 @@ scanf("%d", &age);   // YES & before age (age is NOT an address)
 ```
 
 ---
+
+
+
+# Chapter 4: The scanf Family — Let the User Talk
+
+## Ask yourself: *Why am I hardcoding everything like it's 1985?*
+
+Look at what we've been doing:
+
+```c
+int age = 45;
+char username[50] = "Tony";
+char city[50] = "Nakuru";
+
+
+## Format Specifiers for `scanf()` (Slightly Different from `printf()`)
+
+Most specifiers are the same, but there's one trap:
+
+| Specifier | What it reads | Example |
+|-----------|--------------|---------|
+| `%d` | Integer | `scanf("%d", &num);` |
+| `%f` | Float | `scanf("%f", &price);` |
+| `%lf` | Double (⚠️ NOT `%f`!) | `scanf("%lf", &bigNum);` |
+| `%c` | Single character | `scanf("%c", &letter);` |
+| `%s` | String (no spaces!) | `scanf("%s", name);` |
+
+**THE DOUBLE TRAP:**
+
+```c
+// WRONG for double:
+double pi;
+scanf("%f", &pi);   // WRONG! %f is for float, not double
+
+// CORRECT for double:
+double pi;
+scanf("%lf", &pi);  // %lf = long float = double
+```
+
+`printf()` uses `%f` for both `float` and `double`.  
+`scanf()` is picky: `%f` for `float`, `%lf` for `double`.
+
+---
